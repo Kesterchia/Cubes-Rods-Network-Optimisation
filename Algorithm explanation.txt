@@ -1,0 +1,27 @@
+The algorithm consists of a few steps:
+
+Step 1:
+
+Check if there are any repeated rods connecting the same 2 cubes.
+If such rods exist, remove those rods and save the number of rods removed under "r".
+
+Step 2:
+Iterate through each rod. For each rod, check if the cubes at both ends of the rod are connected to at least 2 other cubes. This ensures that if the current rod is cut, the cubes at each end will still be connected to another cube. 
+
+If the condition is not met, the rod cannot be cut. If it is met, then continue to the next step.
+
+Step 3:
+Check if after the current rod is cut, whether the entire network of cubes will still remain connected - i.e. every cube must still have at least one path to every other cube in the network. 
+
+If the condition is not met, the rod cannot be cut. If it is met, then the rod can be cut and some platinum is earned!!$$$$
+
+Step 4: After choosing to cut or not cut the rod, the algorithm continues iterating through each rod in the network until every rod has been considered. The function then returns the total number of rods cut (remembering to include the cutting of the duplicate rods in the beginning). 
+
+
+Sequence of rod consideration:
+
+The algorithm uses a sequential selection of rods to consider (i.e. algorithm considers one rod, then the next, then the next). As the cutting of the rods affects the entire network, the order in which the rods are considered by the algorithm affects whether the optimal solution is obtained. 
+
+Therefore in the compute function, the algorithm is run for a default of 5000 random permutations of the rod sequence, outputting a solution each time. The maximum of all 5000 solutions will be returned as the optimal solution (as we want to cut as many rods as possible). 
+
+However this does not guarantee always finding the optimal solution. Increasing the iterations will make it more likely to find the optimal solution, but with a large number of cubes this method may not be very efficient as the possible number of permutations explodes out of control very quickly. 	
