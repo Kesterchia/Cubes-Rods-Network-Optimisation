@@ -20,11 +20,6 @@ number, no need to enumerate which ones to cut.) Make sure your solution works f
 the layout of the rods and cubes. Cubes are identified by integers and each item of the input corresponds to a rod:
 it tells which two cubes are connected by that rod.
 
-● Explain the algorithm you used. How does it work? Why is it correct?
-Requirements
-
-● The submission has to be written in Python3.
-
 ● The solution should implement a function compute(rods) that takes the rods as input and returns the number of
 rods that can be removed.
 ○ The argument rods should be a list of 2-tuples, each tuple corresponding to a rod with the cube identifiers
@@ -35,8 +30,6 @@ and 3.
 ○ The function compute() should return one value, the number of rods which could be cut. For
 example compute([(1, 2), (1, 3), (3, 2)]) should return the value 1.
 
-● Attach a short text file in which you explain your algorithm. It’s a plus if you can provide proof of
-correctness.
 
 Example
 rods = [(42, 35), (20, 35), (20, 35), (42, 10)]
