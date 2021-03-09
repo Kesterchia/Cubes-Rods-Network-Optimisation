@@ -1,4 +1,6 @@
-The algorithm consists of a few steps:
+The program makes use of the Python package networkx, a tool for network analysis and graphing.
+
+The algorithm itself consists of a few steps:
 
 Step 1:
 
