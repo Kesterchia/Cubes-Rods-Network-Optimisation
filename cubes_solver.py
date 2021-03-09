@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import networkx as nx
+import random
 
 def n_neighbors(graph,node):
     return len([i for i in graph.neighbors(node)])
@@ -8,7 +9,7 @@ def n_neighbors(graph,node):
 def check_both_sides(graph,edge):
     return all(n_neighbors(graph,i) > 1 for i in edge)
 
-def compute(rods, verbose = False):
+def risking_my_life_for_these_cubes(rods, verbose = False):
     
     #First count how many repeat edges
     
@@ -22,8 +23,12 @@ def compute(rods, verbose = False):
     #Iterate through each edge
     
     cut_counter = 0
+    edgelist = list(G.edges)
     
-    for edge in list(G.edges):
+    #Randomly shuffle the list of edges so that the rods are considered in a different sequence each time
+    random.shuffle(edgelist)
+    
+    for edge in edgelist:
         
         #First: Are nodes on both ends of edge connected to another node?
         
@@ -62,6 +67,15 @@ def compute(rods, verbose = False):
             
     return cut_counter + repeats
 
+
+#Define a function that runs the algorithm a number of iterations for random permutations of the rod sequence
+
+def compute(rods, iterations = 5000, verbose = False):
+    solutions = []
+    for i in range(iterations):
+        solution = risking_my_life_for_these_cubes(rods = rods,verbose = verbose)
+        solutions.append(solution)
+    return max(solutions)
 
 #For script
 
